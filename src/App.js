@@ -5,6 +5,10 @@ function App() {
   return (
     <div className="App">
       <TodoItem/>
+      <TodoItem/>
+      <TodoItem/>
+      <TodoItem/>
+      <TodoItem/>
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
