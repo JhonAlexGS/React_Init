@@ -1,14 +1,33 @@
+import { TodoCounter } from './TodoCounter';
+import { TodoSearch } from './TodoSearch';
+import { TodoList } from './TodoList';
 import logo from './platzi.webp';
 import './App.css';
+import { TodoItem } from './TodoItem';
+import { CreateTodoButton } from './CreateTodoButton';
 
 function App() {
   return (
     <div className="App">
-      <TodoItem/>
-      <TodoItem/>
-      <TodoItem/>
-      <TodoItem/>
-      <TodoItem/>
+
+      {/* Completaste tanto de tantos componentes */}
+      <TodoCounter completed={16} total={25} />
+
+      {/* Campo qu  e nos deja filtrar Todos */}
+      <TodoSearch />
+
+      {/* Lista de Todos */}
+      <TodoList>
+
+        <TodoItem/>
+        <TodoItem/>
+        <TodoItem/>
+
+      </TodoList>
+
+      {/* Boton que permite crear la funconalidad de crear Todos */}
+      <CreateTodoButton />
+
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -27,14 +46,6 @@ function App() {
   );
 }
 
-function TodoItem(){
-  return (
-    <li>
-      <span>V</span>
-      <p>Llorar con la Llorona</p>
-      <span>X</span>
-    </li>
-  );
-};
+
 
 export default App;
