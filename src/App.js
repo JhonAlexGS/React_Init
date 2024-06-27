@@ -5,13 +5,16 @@ import logo from './platzi.webp';
 import './App.css';
 import { TodoItem } from './TodoItem';
 import { CreateTodoButton } from './CreateTodoButton';
+import React from 'react';
 
 function App() {
   return (
-    <div className="App">
+    <React.Fragment>
 
       {/* Completaste tanto de tantos componentes */}
       <TodoCounter completed={16} total={25} />
+      <TodoCounter completed={8} total={12} />
+      <TodoCounter completed={3} total={5} />
 
       {/* Campo qu  e nos deja filtrar Todos */}
       <TodoSearch />
@@ -42,7 +45,7 @@ function App() {
           Aprendamos con React
         </a>
       </header>
-    </div>
+    </React.Fragment>
   );
 }
 
