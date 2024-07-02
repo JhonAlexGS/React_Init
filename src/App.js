@@ -13,6 +13,10 @@ const defaultTodos = [
 ]
 
 function App() {
+
+  const [searchValue, setSearchValue] = React.useState('');
+  console.log("Los usuaros buscan todos de " + searchValue);
+
   return (
     <React.Fragment>
 
@@ -20,7 +24,10 @@ function App() {
       <TodoCounter completed={16} total={25} />
 
       {/* Campo qu  e nos deja filtrar Todos */}
-      <TodoSearch />
+      <TodoSearch 
+        searchValue={searchValue} 
+        setSearchValue={setSearchValue} 
+      />
 
       {/* Lista de Todos */}
       <TodoList>
