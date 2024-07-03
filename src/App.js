@@ -62,11 +62,11 @@ function App() {
       <TodoSearch 
         searchValue={searchValue} 
         setSearchValue={setSearchValue} 
-      />
+      />    
 
-      {/* Lista de Todos */}
+      {/* Lista de Todos */} 
       <TodoList>
-
+          c
         {/* {defaultTodos} */}
         {searchTodos.map(todo =>(
           <TodoItem 

@@ -9,11 +9,23 @@ import './TodoCounter.css'
 // }
 
 function TodoCounter({total, completed}){
+
+    let mensagge = "";
+
+    if (total == 0) {
+        mensagge = "Agrega un ToDo"
+    }else if (completed == total){
+        mensagge = "Todos los  ToDos se completaron exitosamente 😜😜"
+    }else{
+        mensagge = `Se completaron ${completed} de ${total} ToDos`;
+    }
+    
     return (
         <h1 className='TodoCounter'>
-            Has completado {completed} de {total} TODOS
+            {mensagge}
         </h1>
-    );
+    );       
+        
   };
 
 export {TodoCounter}
