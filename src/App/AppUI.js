@@ -4,49 +4,60 @@ import { TodoSearch } from '../TodoSearch';
 import { TodoList } from '../TodoList';
 import { TodoItem } from '../TodoItem';
 import { CreateTodoButton } from '../CreateTodoButton';
+import {  EmptyTodos } from "../EmptyTodos"
+import {  TodosError } from "../TodosError"
+import {  TodosLoading } from "../TodosLoading"
+import { TodoContext } from '../TodoContext';
 
-function AppUI({
+
+
+function AppUI(){
+
+  const {
     loading,
     error,
-    completedTodos,
-    totalTodos,
-    searchValue,
-    setSearchValue,
     searchTodos,
     completeTodo,
-    deleteTodo,
-}){
+    deleteTodo,    
+  } = React.useContext(TodoContext);
+
+
     return (
         <React.Fragment>
     
           {/* Completaste tanto de tantos componentes */}
-          <TodoCounter completed={completedTodos} total={totalTodos} />
-    
+          <TodoCounter />
+      
           {/* Campo qu  e nos deja filtrar Todos */}
-          <TodoSearch 
-            searchValue={searchValue} 
-            setSearchValue={setSearchValue} 
-          />    
-    
-          {/* Lista de Todos */} 
+          <TodoSearch />    
+          
           <TodoList>
-
-            {loading && <p>Estamos cargando...</p>}
-            {error && <p>Desesperate, hubo un error!!!!</p>}
-            {(!loading && searchTodos.lenght === 0) && <p>Crea tu primer TODO</p>}
-              
-            {/* {defaultTodos} */}
-            {searchTodos.map(todo =>(
-              <TodoItem 
-                key={todo.text} 
-                text={todo.text}
-                completed={todo.completed}
-                onComplete = {() => completeTodo(todo.text) }
-                onDelete = { () => deleteTodo(todo.text) }
-              />
-            ))}
-    
+            
+          {loading && (
+              <>
+              <TodosLoading />
+              <TodosLoading />
+              <TodosLoading />
+            </>
+          )}
+          {error && <TodosError />}
+          {(!loading && searchTodos.lenght === 0) && <EmptyTodos />}
+            
+          {/* {defaultTodos} */}
+          {searchTodos.map(todo =>(
+            <TodoItem 
+              key={todo.text} 
+              text={todo.text}
+              completed={todo.completed}
+              onComplete = {() => completeTodo(todo.text) }
+              onDelete = { () => deleteTodo(todo.text) }
+            />
+          ))}
           </TodoList>
+
+
+
+
     
           {/* Boton que permite crear la funconalidad de crear Todos */}
           <CreateTodoButton />

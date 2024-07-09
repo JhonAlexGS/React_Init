@@ -1,4 +1,6 @@
+import React from 'react';
 import './TodoCounter.css'
+import { TodoContext } from '../TodoContext';
 
 // const estilos = {
 //     backgroundColor: 'red',
@@ -8,16 +10,21 @@ import './TodoCounter.css'
 //     padding: '48px'
 // }
 
-function TodoCounter({total, completed}){
+function TodoCounter(){
+
+    const {
+        completedTodos,
+        totalTodos
+    } = React.useContext(TodoContext)
 
     let mensagge = "";
 
-    if (total == 0) {
+    if (totalTodos === 0) {
         mensagge = "Agrega un ToDo"
-    }else if (completed == total){
+    }else if (completedTodos === totalTodos){
         mensagge = "Todos los  ToDos se completaron exitosamente 😜😜"
     }else{
-        mensagge = `Se completaron ${completed} de ${total} ToDos`;
+        mensagge = `Se completaron ${completedTodos} de ${totalTodos} ToDos`;
     }
     
     return (
