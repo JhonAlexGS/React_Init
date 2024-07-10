@@ -14,6 +14,7 @@ function TodoProvider( { children } ){
       } = useLocalStorage("TODOS_V1", []);
 
     const [searchValue, setSearchValue] = React.useState('');
+    const [openModal, setOpenModal] = React.useState(true);
 
     // Si cada uno de los elemenos tiene la propiedad como true trae los elementos
     const completedTodos = todos.filter(todos => !!todos.completed).length
@@ -57,7 +58,9 @@ function TodoProvider( { children } ){
             setSearchValue,
             searchTodos,
             completeTodo,
-            deleteTodo,
+            deleteTodo, 
+            openModal,
+            setOpenModal
         }}>
             { children }
         </TodoContext.Provider>
